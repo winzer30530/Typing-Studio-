@@ -1,0 +1,35 @@
+{
+  "name": "bica-typing-studio",
+  "version": "1.0.3",
+  "private": true,
+  "type": "module",
+  "description": "BICA Typing Studio — professional typing education and gamification platform for BICA Computer Training Centre",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node server/seed.js",
+    "seed:demo": "node server/seed.js --demo",
+    "migrate": "node scripts/migrate.js",
+    "backup": "node server/backup.js backup",
+    "test": "node --test tests/typing-engine.test.js tests/integration.test.js",
+    "test:watch": "node --test --watch tests/",
+    "check": "node scripts/check-modules.mjs && node scripts/check-styles.mjs && node scripts/check-frontend.mjs",
+    "test:e2e": "node tests/e2e.mjs",
+    "test:all": "node scripts/check-modules.mjs && node scripts/check-styles.mjs && node scripts/check-frontend.mjs && node scripts/stamp-sw.mjs --check && node --test tests/*.test.js && node tests/e2e.mjs && node tests/csp-check.mjs && node tests/offline-check.mjs && node tests/layout-check.mjs",
+    "test:csp": "node tests/csp-check.mjs",
+    "test:offline": "node tests/offline-check.mjs",
+    "set-password": "node scripts/set-password.mjs",
+    "check:modules": "node scripts/check-modules.mjs",
+    "check:styles": "node scripts/check-styles.mjs",
+    "stamp": "node scripts/stamp-sw.mjs",
+    "stamp:check": "node scripts/stamp-sw.mjs --check",
+    "test:layout": "node tests/layout-check.mjs",
+    "check:frontend": "node scripts/check-frontend.mjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "express": "^4.22.3"
+  },
+  "devDependencies": { "playwright-core": "^1.48.0" }
+}
